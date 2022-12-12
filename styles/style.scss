@@ -22,6 +22,7 @@ body {
 a {
   color: black;
   text-decoration: none;
+  cursor: pointer;
 }
 ul {
   list-style: none;
@@ -44,6 +45,11 @@ p {
   border-radius: 5px;
   border: none;
   font-size: 13px;
+  cursor: pointer;
+  &:hover {
+    opacity: 0.7;
+    transition: 0.3s;
+  }
 }
 
 //* navigation css
@@ -111,18 +117,20 @@ header {
 .header-right {
   position: relative;
 
-  img {
-    width: 100%;
-  }
-  .hero-bg {
+  &::after {
+    content: "";
     position: absolute;
     right: 0;
     z-index: -1;
     top: 50px;
-    width: 310px;
-    height: 215px;
+    width: 80%;
+    height: 80%;
     background-color: $soft-blue;
-    border-bottom-left-radius: 30%;
+    border-bottom-left-radius: 40%;
+  }
+
+  img {
+    width: 100%;
   }
 }
 .header-left {
@@ -186,37 +194,60 @@ header {
     width: 100%;
     opacity: 0.4;
   }
-  .feature-tabs-bg {
-    position: absolute;
-    left: -10vmax;
-    z-index: -1;
-    top: 510px;
-    width: 300px;
-    height: 215px;
-    background-color: $soft-blue;
-    border-top-right-radius: 30%;
-    border-bottom-right-radius: 30%;
-  }
 }
 .feature-tabs-container {
   display: flex;
   align-items: flex-end;
   gap: 30px;
+  position: relative;
+  min-height: 600px;
   // background-color: red;
 }
 .feature-tabs {
-  display: flex;
-  flex-direction: column;
-  min-width: 100%;
+  // flex-direction: column;
   text-align: center;
+  // position: relative;
+  position: absolute;
+  // width: 100vw;
+  top: 0;
+  transform: translateX(-80%);
+  visibility: hidden;
+
+  .tab-img {
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: -4vmax;
+      z-index: -1;
+      top: 15%;
+      width: 87%;
+      height: 100%;
+      background-color: $soft-blue;
+      border-top-right-radius: 30%;
+      border-bottom-right-radius: 30%;
+    }
+  }
+
   img {
     width: 100%;
-    margin-bottom: 70px;
   }
+
   p {
     margin-block: 15px;
   }
 }
+.feature-tab-info {
+  margin-top: 70px;
+}
+// .tab {
+//   position: absolute;
+//   width: 100vw;
+//   top: 0;
+//   transform: translateX(-80%);
+//   display: none;
+// }
 
 //Download the extension css
 
@@ -322,6 +353,7 @@ section:nth-child(6) {
       padding: 12px 15px;
       border-radius: 5px;
       border: none;
+      cursor: pointer;
     }
     button {
       background-color: $soft-red;
@@ -384,4 +416,9 @@ footer {
   max-height: 300px;
   // display: block;
   // overflow-y: visible;
+}
+.translate0 {
+  transform: translateX(0%);
+  visibility: visible;
+  transition: 0.6s ease;
 }
