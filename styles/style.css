@@ -13,6 +13,7 @@ body {
 a {
   color: black;
   text-decoration: none;
+  cursor: pointer;
 }
 
 ul {
@@ -40,6 +41,11 @@ p {
   border-radius: 5px;
   border: none;
   font-size: 13px;
+  cursor: pointer;
+}
+.blue-btn:hover {
+  opacity: 0.7;
+  transition: 0.3s;
 }
 
 .desktop-nav {
@@ -116,18 +122,19 @@ header {
 .header-right {
   position: relative;
 }
-.header-right img {
-  width: 100%;
-}
-.header-right .hero-bg {
+.header-right::after {
+  content: "";
   position: absolute;
   right: 0;
   z-index: -1;
   top: 50px;
-  width: 310px;
-  height: 215px;
+  width: 80%;
+  height: 80%;
   background-color: hsl(231deg, 69%, 60%);
-  border-bottom-left-radius: 30%;
+  border-bottom-left-radius: 40%;
+}
+.header-right img {
+  width: 100%;
 }
 
 .header-left {
@@ -188,36 +195,46 @@ header {
   width: 100%;
   opacity: 0.4;
 }
-.features .feature-tabs-bg {
-  position: absolute;
-  left: -10vmax;
-  z-index: -1;
-  top: 510px;
-  width: 300px;
-  height: 215px;
-  background-color: hsl(231deg, 69%, 60%);
-  border-top-right-radius: 30%;
-  border-bottom-right-radius: 30%;
-}
 
 .feature-tabs-container {
   display: flex;
   align-items: flex-end;
   gap: 30px;
+  position: relative;
+  min-height: 600px;
 }
 
 .feature-tabs {
-  display: flex;
-  flex-direction: column;
-  min-width: 100%;
   text-align: center;
+  position: absolute;
+  top: 0;
+  transform: translateX(-80%);
+  visibility: hidden;
+}
+.feature-tabs .tab-img {
+  position: relative;
+}
+.feature-tabs .tab-img::before {
+  content: "";
+  position: absolute;
+  left: -4vmax;
+  z-index: -1;
+  top: 15%;
+  width: 87%;
+  height: 100%;
+  background-color: hsl(231deg, 69%, 60%);
+  border-top-right-radius: 30%;
+  border-bottom-right-radius: 30%;
 }
 .feature-tabs img {
   width: 100%;
-  margin-bottom: 70px;
 }
 .feature-tabs p {
   margin-block: 15px;
+}
+
+.feature-tab-info {
+  margin-top: 70px;
 }
 
 .dl-extension {
@@ -318,6 +335,7 @@ section:nth-child(6) {
   padding: 12px 15px;
   border-radius: 5px;
   border: none;
+  cursor: pointer;
 }
 .contact-container .contact button {
   background-color: hsl(0deg, 94%, 66%);
@@ -372,4 +390,10 @@ footer .footer-right img + img {
 
 .faq.drop .faq-answer {
   max-height: 300px;
+}
+
+.translate0 {
+  transform: translateX(0%);
+  visibility: visible;
+  transition: 0.6s ease;
 }/*# sourceMappingURL=style.css.map */

@@ -27,19 +27,32 @@ const featuresTab = document.querySelectorAll('.tabs');
         });
     }
 
-const activeTab = document.querySelector('.feature-tabs-container');
+const activeTab = document.querySelectorAll('.feature-tabs');
 featuresTab.forEach(tabs => {
+    activeTab[0].classList.add('translate0');
     tabs.addEventListener('click', () =>{
-        activeTab.style.transition = 'transform .3s ease-in-out';
-        if(tabs.id == 'tab1'){
-            activeTab.style.transform = 'translateX(' + (-100 * 0) +'%)';
-        }
-        else if(tabs.id == 'tab2'){
-            activeTab.style.transform = 'translateX(' + (-108 * 1) + '%)';
-        }
-        else if(tabs.id == 'tab3'){
-            activeTab.style.transform = 'translateX(' + (-108 * 2) + '%)';
-        }
+        // activeTab.forEach(tab => {
+            
+            // for(let i = 0; i < featuresTab.length; i++){
+                activeTab.forEach(tab => {
+                    tab.classList.remove('translate0');
+                    // console.log(tab);
+                });
+            // }
+            if(tabs.id == 'tab1'){
+                activeTab[0].classList.add('translate0');
+            }
+            else if(tabs.id == 'tab2'){
+                activeTab[1].classList.add('translate0');
+            }
+            else if(tabs.id == 'tab3'){
+                activeTab[2].classList.add('translate0');
+            }
+        // })
+        // 
+        
+
+       
         // activeTab.style.transform = 'translateX(' + (-100 * 2) + '%)'
     });
 });
